@@ -74,8 +74,7 @@ jobs:
           include: Echoes.Godot/Echoes.Godot.csproj
 
       - name: 📦 Build
-        run: dotnet build \
-          Echoes.Godot/Echoes.Godot.csproj -c Release
+        run: dotnet build Echoes.Godot/Echoes.Godot.csproj -c Release
 
       - name: 🔎 Get Package Path
         id: package-path

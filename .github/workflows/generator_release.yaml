@@ -69,8 +69,7 @@ jobs:
           include: Echoes.Godot.Generator/Echoes.Godot.Generator.csproj
 
       - name: 📦 Build
-        run: dotnet build \
-          Echoes.Godot.Generator/Echoes.Godot.Generator.csproj -c Release
+        run: dotnet build Echoes.Godot.Generator/Echoes.Godot.Generator.csproj -c Release
 
       - name: 🔎 Get Package Path
         id: package-path
