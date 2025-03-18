@@ -42,7 +42,7 @@ jobs:
           global-json-file: global.json
 
       - name: 📦 Restore Dependencies
-        run: dotnet restore
+        run: dotnet restore **/*.sln
 
       - name: 🤖 Setup Godot
         uses: chickensoft-games/setup-godot@v2
