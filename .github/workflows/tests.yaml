@@ -61,7 +61,7 @@ jobs:
         run: godot --headless --build-solutions --quit || exit 0
 
       - name: 🦺 Build Projects
-        run: dotnet build
+        run: dotnet build **/*.sln
 
       - name: 🧪 Run Tests
         working-directory: Echoes.Godot.Tests
