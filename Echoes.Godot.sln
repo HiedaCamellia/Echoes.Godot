@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Echoes.Godot", "Echoes.Godot\Echoes.Godot.csproj", "{E92BC3BF-3BE8-4D1C-B08A-75CD80E7E8CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Echoes.Godot.Tests", "Echoes.Godot.Tests\Echoes.Godot.Tests.csproj", "{F7A00923-A746-44E2-ACD0-A61661028693}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Echoes.Godot.Generator", "Echoes.Godot.Generator\Echoes.Godot.Generator.csproj", "{61148CBE-6CBE-43C5-A653-CEBBBEA9A639}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E92BC3BF-3BE8-4D1C-B08A-75CD80E7E8CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E92BC3BF-3BE8-4D1C-B08A-75CD80E7E8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E92BC3BF-3BE8-4D1C-B08A-75CD80E7E8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E92BC3BF-3BE8-4D1C-B08A-75CD80E7E8CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7A00923-A746-44E2-ACD0-A61661028693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A00923-A746-44E2-ACD0-A61661028693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7A00923-A746-44E2-ACD0-A61661028693}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A00923-A746-44E2-ACD0-A61661028693}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{61148CBE-6CBE-43C5-A653-CEBBBEA9A639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61148CBE-6CBE-43C5-A653-CEBBBEA9A639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61148CBE-6CBE-43C5-A653-CEBBBEA9A639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61148CBE-6CBE-43C5-A653-CEBBBEA9A639}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

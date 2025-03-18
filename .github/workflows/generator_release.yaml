@@ -1,0 +1,94 @@
+name: '📦 Release Generator'
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        type: string
+        description: "major, minor, or patch"
+        required: true
+        default: "patch"
+  workflow_call:
+    secrets:
+      NUGET_API_KEY:
+        description: "API key for Nuget"
+        required: true
+      GH_BASIC:
+        description: "Personal access token (PAT) for GitHub"
+        required: true
+    inputs:
+      bump:
+        type: string
+        description: "major, minor, or patch"
+        required: true
+        default: "patch"
+jobs:
+  release:
+    name: '📦 Release Generator'
+    runs-on: ubuntu-latest
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+      DOTNET_NOLOGO: true
+    steps:
+      - name: 🧾 Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_BASIC }}
+          lfs: true
+          submodules: 'recursive'
+          fetch-depth: 0
+
+      - name: 🔎 Read Current Project Version
+        id: current-version
+        uses: WyriHaximus/github-action-get-previous-tag@v1
+        with:
+          fallback: "0.0.0-devbuild"
+
+      - name: 🖨 Print Current Version
+        run: |
+          echo "Current Version: ${{ steps.current-version.outputs.tag }}"
+
+      - name: 🧮 Compute Next Version
+        uses: chickensoft-games/next-godot-csproj-version@v1
+        id: next-version
+        with:
+          project-version: ${{ steps.current-version.outputs.tag }}
+          godot-version: global.json
+          bump: ${{ inputs.bump }}
+
+      - uses: actions/setup-dotnet@v4
+        name: 💽 Setup .NET SDK
+        with:
+          global-json-file: global.json
+
+      - name: 📝 Write Version to File
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "0.0.0-devbuild"
+          replace: ${{ steps.next-version.outputs.version }}
+          regex: false
+          include: Echoes.Godot.Generator/Echoes.Godot.Generator.csproj
+
+      - name: 📦 Build
+        run: dotnet build \
+          Echoes.Godot.Generator/Echoes.Godot.Generator.csproj -c Release
+
+      - name: 🔎 Get Package Path
+        id: package-path
+        run: |
+          package=$(find ./Echoes.Godot.Generator/nupkg -name "*.nupkg")
+          echo "package=$package" >> "$GITHUB_OUTPUT"
+          echo "📦 Found package: $package"
+
+      - name: ✨ Create Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_BASIC }}
+        run: |
+          version="${{ steps.next-version.outputs.version }}"
+          gh release create --title "v$version" --generate-notes "$version" \
+            "${{ steps.package-path.outputs.package }}"
+
+      - name: 🛜 Publish to Nuget
+        run: |
+          dotnet nuget push "${{ steps.package-path.outputs.package }}" \
+            --api-key "${{ secrets.NUGET_API_KEY }}" \
+            --source "https://api.nuget.org/v3/index.json" --skip-duplicate

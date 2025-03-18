@@ -1,0 +1,48 @@
+<Project Sdk="Godot.NET.Sdk/4.4.0">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <LangVersion>preview</LangVersion>
+    <RootNamespace>Echoes.Godot.Tests</RootNamespace>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <!-- Required for some nuget packages to work -->
+    <!-- godotengine/godot/issues/42271#issuecomment-751423827 -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <!-- To show generated files -->
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>.generated</CompilerGeneratedFilesOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Test executor. -->
+    <PackageReference Include="Chickensoft.GoDotTest" Version="1.6.3" />
+    <PackageReference Include="Chickensoft.GodotTestDriver" Version="3.0.2" />
+    <PackageReference Include="coverlet.collector" Version="6.0.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <!-- Assertions library. -->
+    <PackageReference Include="Shouldly" Version="4.3.0" />
+    <!-- Generated mocks. -->
+    <PackageReference Include="LightMock.Generator" Version="1.2.2" />
+    <!-- Convenience wrapper around generated mocks. -->
+    <PackageReference Include="LightMoq" Version="0.1.0" />
+    <PackageReference Update="Godot.SourceGenerators" Version="4.4.1-rc.1" />
+    <PackageReference Update="GodotSharp" Version="4.4.1-rc.1" />
+    <PackageReference Update="GodotSharpEditor" Version="4.4.1-rc.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Include the package to test. -->
+    <ProjectReference Include="..\Echoes.Godot\Echoes.Godot.csproj" />
+    <ProjectReference Include="..\Echoes.Godot.Generator\Echoes.Godot.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Include all .toml files as embedded resources (so we can dynamically load them at runtime) -->
+    <EmbeddedResource Include="**\*.toml" />
+
+    <!-- Specify invariant files that are fed into the generator (Echoes.Generator) -->
+    <AdditionalFiles Include="Translations\Strings.toml" />
+  </ItemGroup>
+</Project>
