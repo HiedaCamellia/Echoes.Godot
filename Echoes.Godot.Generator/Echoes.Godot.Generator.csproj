@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <IsPackable>true</IsPackable>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
-
+    <OutputPath>./nupkg</OutputPath>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <IsRoslynComponent>true</IsRoslynComponent>
 
@@ -16,6 +16,7 @@
     <Authors>Voyonic Systems GmbH</Authors>
     <Product>Echoes.Generator</Product>
     <Title>Echoes.Generator</Title>
+    <Version>0.0.0-devbuild</Version>
     <PackageId>Echoes.Godot.Generator</PackageId>
     <Description>Simple type safe translations for Avalonia</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
