@@ -10,9 +10,17 @@
     "**/.godot/**/*.*",
     "**/obj/**/*.*",
     "**/bin/**/*.*",
-    "**/nupkg/**/*.*"
+    "**/nupkg/**/*.*",
+    "**/Lib/*.cs",
+    "**/*.uid",
+    "**/*.godot",
+    "**/Translations/*.toml"
   ],
   "words": [
+    "Avalonia",
+    "Cmdline",
+    "geht",
+    "HiedaCamellia",
     "assemblyfilters",
     "automerge",
     "branchcoverage",

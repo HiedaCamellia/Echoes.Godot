@@ -11,13 +11,13 @@
 
     <!-- nuget package info -->
     <PackageIcon>icon.png</PackageIcon>
-    <Authors>Voyonic Systems GmbH</Authors>
+    <Authors>HiedaCamellia</Authors>
     <Product>Echoes.Generator</Product>
     <Title>Echoes.Generator</Title>
     <Version>0.0.0-devbuild</Version>
     <PackageVersion>0.0.0-devbuild</PackageVersion>
     <PackageId>Echoes.Godot.Generator</PackageId>
-    <Description>Simple type safe translations for Avalonia</Description>
+    <Description>Simple type safe translations for Godot</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/HiedaCamellia/Echoes.Godot</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
