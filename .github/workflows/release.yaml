@@ -74,13 +74,16 @@ jobs:
           include: Echoes.Godot/Echoes.Godot.csproj
 
       - name: 📦 Build
-        run: dotnet build Echoes.Godot/Echoes.Godot.csproj -c Release
+        run: |
+          dotnet build Echoes.Godot/Echoes.Godot.csproj -c Release
+          dotnet build Echoes.Godot.Generator/Echoes.Godot.Generator.csproj -c Release
 
       - name: 🔎 Get Package Path
         id: package-path
         run: |
           package=$(find ./Echoes.Godot/nupkg -name "*.nupkg")
-          echo "package=$package" >> "$GITHUB_OUTPUT"
+          generator_package=$(find ./Echoes.Godot.Generator/nupkg -name "*.nupkg")
+          echo "package=$package $generator_package" >> "$GITHUB_OUTPUT"
           echo "📦 Found package: $package"
 
       - name: ✨ Create Release
