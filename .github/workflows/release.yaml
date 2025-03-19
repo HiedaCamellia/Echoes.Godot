@@ -71,7 +71,7 @@ jobs:
           find: "0.0.0-devbuild"
           replace: ${{ steps.next-version.outputs.version }}
           regex: false
-          include: "+(Echoes.Godot/Echoes.Godot.csproj|Echoes.Godot.Generator/Echoes.Godot.Generator.csproj)"
+          include: "+(**/*.csproj)"
 
       - name: 📦 Build
         run: |
