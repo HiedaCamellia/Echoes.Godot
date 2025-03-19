@@ -19,7 +19,7 @@
     <PackageId>Echoes.Godot.Generator</PackageId>
     <Description>Simple type safe translations for Avalonia</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/Voyonic-Systems/Echoes</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/HiedaCamellia/Echoes.Godot</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>

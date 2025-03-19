@@ -26,10 +26,10 @@
     <PackageTags/>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageProjectUrl></PackageProjectUrl>
-
+    <PackageProjectUrl>https://github.com/HiedaCamellia/Echoes.Godot</PackageProjectUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl></RepositoryUrl>
+    <RepositoryUrl>https://github.com/HiedaCamellia/Echoes.Godot</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
