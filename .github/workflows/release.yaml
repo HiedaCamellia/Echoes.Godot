@@ -83,8 +83,10 @@ jobs:
         run: |
           package=$(find ./Echoes.Godot/nupkg -name "*.nupkg")
           generator_package=$(find ./Echoes.Godot.Generator/nupkg -name "*.nupkg")
-          echo "package=$package $generator_package" >> "$GITHUB_OUTPUT"
+          echo "package=$package" >> "$GITHUB_OUTPUT"
+          echo "generator_package=$generator_package" >> "$GITHUB_OUTPUT"
           echo "📦 Found package: $package"
+          echo "📦 Found package: $generator_package"
 
       - name: ✨ Create Release
         env:
@@ -92,10 +94,15 @@ jobs:
         run: |
           version="${{ steps.next-version.outputs.version }}"
           gh release create --title "v$version" --generate-notes "$version" \
-            "${{ steps.package-path.outputs.package }}"
+            "${{ steps.package-path.outputs.package }}" \
+            "${{ steps.package-path.outputs.generator_package }}"
 
       - name: 🛜 Publish to Nuget
         run: |
           dotnet nuget push "${{ steps.package-path.outputs.package }}" \
+            --api-key "${{ secrets.NUGET_API_KEY }}" \
+            --source "https://nuget.pkg.github.com/HiedaCamellia/index.json" --skip-duplicate
+
+          dotnet nuget push "${{ steps.package-path.outputs.generator_package }}" \
             --api-key "${{ secrets.NUGET_API_KEY }}" \
             --source "https://nuget.pkg.github.com/HiedaCamellia/index.json" --skip-duplicate
