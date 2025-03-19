@@ -10,13 +10,12 @@
     <IsRoslynComponent>true</IsRoslynComponent>
 
     <!-- nuget package info -->
-    <Version>$(EchoesVersion)</Version>
-    <PackageVersion>$(EchoesVersion)</PackageVersion>
     <PackageIcon>icon.png</PackageIcon>
     <Authors>Voyonic Systems GmbH</Authors>
     <Product>Echoes.Generator</Product>
     <Title>Echoes.Generator</Title>
     <Version>0.0.0-devbuild</Version>
+    <PackageVersion>0.0.0-devbuild</PackageVersion>
     <PackageId>Echoes.Godot.Generator</PackageId>
     <Description>Simple type safe translations for Avalonia</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

@@ -14,6 +14,7 @@
 
     <Title>Echoes.Godot</Title>
     <Version>0.0.0-devbuild</Version>
+    <PackageVersion>0.0.0-devbuild</PackageVersion>
     <Description>Echoes.Godot description.</Description>
     <Copyright>© 2024 HiedaCamellia</Copyright>
     <Authors>HiedaCamellia</Authors>
