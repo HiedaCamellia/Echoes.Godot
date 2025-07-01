@@ -174,7 +174,7 @@ public class Generator : ISourceGenerator
                         {{"\t"}}{{"\t"}}return binding;
                         {{"\t"}}}
 
-                        {{"\t"}}public void Dispose()
+                        {{"\t"}}public void UnbindAll()
                         {{"\t"}}{
                         {{"\t"}}{{"\t"}}foreach (var binding in _bindings)
                         {{"\t"}}{{"\t"}}{
@@ -182,6 +182,8 @@ public class Generator : ISourceGenerator
                         {{"\t"}}{{"\t"}}}
                         {{"\t"}}{{"\t"}}_bindings.Clear();
                         {{"\t"}}}
+
+                        {{"\t"}}public void Dispose() => UnbindAll();
                         """);
 
 
