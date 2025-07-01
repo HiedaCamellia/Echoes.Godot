@@ -73,6 +73,14 @@
     "typeparamref",
     "ulong",
     "Unparented",
-    "Xunit"
+    "Xunit",
+    "mscorlib",
+    "shemas",
+    "Fresharper",
+    "Dhost",
+    "Decompiler",
+    "Fdecompiler",
+    "Fresharper",
+    "unkeyed"
   ]
 }

@@ -146,6 +146,7 @@ public class Generator : ISourceGenerator
               using Echoes;
               using System;
               using System.Reflection;
+              using System.Collections.Generic;
 
               namespace {{file.GeneratorNamespace}};
 
