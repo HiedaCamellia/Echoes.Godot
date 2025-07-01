@@ -77,7 +77,7 @@ public class TranslationUnit : IDisposable
             lock (_unkeyedBindings)
             {
                 _unkeyedBindings.Remove(disposable);
-                disposable?.Dispose();
+                disposable.Dispose();
             }
         });
     }
